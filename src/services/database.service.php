@@ -74,4 +74,17 @@ class DatabaseService implements iSlimDatabase {
 		}
 	}
 	
+	public function getResult($query, $params=array()) {
+		try {
+			$this->executeQuery($query, $params);
+			return $this->stmt->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			/*$this->stmt = false;
+			if ($this->show_db_error) {
+				echo $e->getMessage();
+			}*/
+			throw new Exception($e);
+		}
+	}
+	
 }
