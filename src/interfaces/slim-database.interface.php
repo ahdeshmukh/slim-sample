@@ -1,0 +1,1 @@
+<?phpinterface iSlimDatabase{    public function connect();	public function executeQuery($query, $params);	public function getResults($query, $params);}
